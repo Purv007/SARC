@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-multipart
+Pillow
+opencv-python-headless
+numpy
+ultralytics
+easyocr
+scikit-image
+lpips
+torch
+torchvision
+aiosqlite
+pydantic
+python-dotenv
