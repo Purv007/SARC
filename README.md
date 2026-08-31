@@ -4,21 +4,20 @@
 ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=FastAPI&logoColor=white)
 
-SARC is a revolutionary multimedia compression system that abandons traditional uniform video and image quantization in favor of **AI-driven, spatially-varying semantic compression**. 
+**SARC** is a smart multimedia compression system that uses AI to shrink image and video file sizes without making the important parts look blurry.
 
-By utilizing an ensemble of specialized neural networks (YOLOv8, EasyOCR), SARC dynamically computes a continuous 2D "Importance Heatmap" for any image or video frame. This ensures that visually and semantically critical regions (e.g., faces, text, moving objects) are preserved at near-lossless quality, while irrelevant background data is aggressively compressed, saving bandwidth without destroying perceptual quality.
+Normally, when you compress a photo or video to save space, the entire image loses quality equally. SARC fixes this by using Artificial Intelligence to scan the image first. It automatically finds the "important" things—like faces, objects, and text—and protects them at near-perfect quality. Meanwhile, it aggressively compresses the empty background (like sky or walls) to save massive amounts of data. 
 
 ## ✨ Features
-- **Multi-Modal AI Engine**: Identifies physical entities, high-frequency textual data, and spatial variances in real-time.
-- **Continuous Importance Mapping**: Converts bounding boxes into Gaussian decay gradients for smooth, non-jarring compression transitions.
-- **Adaptive Spatially-Varying Quantization**: Mathematically maps importance scores `[0.0 to 1.0]` directly to localized codec quality parameters (e.g., JPEG Q-factors).
-- **Perceptual Metrics Dashboard**: Evaluates success using human-centric perceptual metrics (LPIPS, SSIM) rather than purely mathematical distortion (PSNR).
-- **Full History & Diagnostics**: SQLite-backed history panel tracking compression ratios, bandwidth savings, and exact AI detections for every uploaded asset.
+- **AI-Powered Vision**: Automatically detects objects, text, and structural edges in real-time.
+- **Smart Adaptive Compression**: Spends more data on important objects and less data on the background.
+- **Smooth Quality Blending**: Gradually fades the compression quality from the background into the objects so it looks natural.
+- **Interactive Dashboard**: Upload files, compare the AI compression side-by-side with standard compression, and view your bandwidth savings!
 
 ## 🚀 Getting Started
 
 ### 1. Backend Setup (FastAPI & AI Models)
-*Note: Ensure you have Python 3.10+ and a CUDA-capable GPU for faster processing.*
+*Note: Ensure you have Python 3.10+ installed.*
 ```bash
 cd backend
 python -m venv venv
@@ -27,7 +26,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-### 2. Frontend Setup (React & Vite)
+### 2. Frontend Setup (React UI)
 ```bash
 cd frontend
 npm install
@@ -35,12 +34,11 @@ npm run dev
 ```
 Navigate to `http://localhost:5173` to access the SARC Dashboard.
 
-## 📊 How it Works
-1. **Upload**: Drag and drop an image or MP4 video.
-2. **Analysis**: The SARC engine extracts frames and passes them through YOLOv8 and EasyOCR.
-3. **Heatmap Generation**: A 2D spatial heatmap is generated representing the "importance" of every pixel.
-4. **Adaptive Compression**: The background is heavily compressed, while the important semantic regions are preserved.
-5. **Compare**: Use the interactive slider to compare SARC vs. Uniform compression, and view real-time LPIPS/SSIM metrics.
+## 📊 How it Works (Simply)
+1. **Upload**: You drop an image or video into the app.
+2. **AI Scan**: The AI scans it and creates a "Heatmap" of what it thinks humans will look at.
+3. **Smart Compression**: It compresses the "cold" areas heavily and protects the "hot" areas.
+4. **Result**: You get a much smaller file size, but it visually looks just as good as the original!
 
 ## 📄 License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
